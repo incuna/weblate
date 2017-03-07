@@ -5,6 +5,7 @@ import platform
 import os
 from logging.handlers import SysLogHandler
 
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 

@@ -1,0 +1,18 @@
+incuna/weblate:
+
+  PkgExclude:
+    - 'node_modules/'
+
+  PkgInclude:
+    - '*'
+  
+  PostInstall:
+    - /usr/local/bin/virtualenv . --python=`which python3`
+    - bin/pip install --upgrade pip
+    - ENV=${ENV_FOLDER:="/var/conf/env"}
+    - envdir $ENV bin/pip install -r requirements-ansible.txt
+    - envdir $ENV bin/python manage.py collectstatic --noinput
+    - envdir $ENV bin/python manage.py migrate --noinput
+
+  Start:
+    - sudo supervisorctl restart all

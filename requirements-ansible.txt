@@ -1,0 +1,6 @@
+-r requirements.txt
+boto>=2.45.0
+dj-database-url>=0.4.2
+django-storages>=1.5.1
+gunicorn==19.6.0
+opbeat>=3.5.1

@@ -1,4 +1,4 @@
-incuna/weblate:
+incuna/translate:
 
   PkgExclude:
     - 'node_modules/'

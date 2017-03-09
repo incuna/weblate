@@ -157,7 +157,7 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'not-for-production') 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'not-for-production') 
 
 TEMPLATES = [
     {

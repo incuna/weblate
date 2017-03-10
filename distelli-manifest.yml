@@ -15,6 +15,6 @@ incuna/translate:
     - envdir $ENV bin/python manage.py migrate --noinput
     - mkdir weblate_wsgi
     - touch weblate_wsgi/__init__.py
-    - ln -sf weblate/wsgi.py weblate_wsgi/wsgi.py  # Add symlink to prevent weblate/__init__.py load
+    - cp ./weblate/wsgi.py ./weblate_wsgi/wsgi.py --preserve=links  # Add symlink to prevent weblate/__init__.py load
   Start:
     - sudo supervisorctl restart all

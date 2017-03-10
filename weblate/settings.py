@@ -187,7 +187,7 @@ TEMPLATES = [
 # Authentication configuration
 AUTHENTICATION_BACKENDS = (
     'weblate.accounts.auth.EmailAuth',
-    # 'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
     # 'social_core.backends.github.GithubOAuth2',
     # 'social_core.backends.bitbucket.BitbucketOAuth',
     # 'social_core.backends.suse.OpenSUSEOpenId',
@@ -210,8 +210,8 @@ SOCIAL_AUTH_FACEBOOK_KEY = ''
 SOCIAL_AUTH_FACEBOOK_SECRET = ''
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'public_profile']
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get(GOOGLE_OAUTH2_KEY, '')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(GOOGLE_OAUTH2_SECRET, '')
 
 # Social auth settings
 SOCIAL_AUTH_PIPELINE = (

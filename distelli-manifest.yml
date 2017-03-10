@@ -13,6 +13,8 @@ incuna/translate:
     - envdir $ENV bin/pip install -r requirements-ansible.txt
     - envdir $ENV bin/python manage.py collectstatic --noinput
     - envdir $ENV bin/python manage.py migrate --noinput
-    - ln -sf weblate/wsgi.py wsgi.py  # Add symlink to prevent weblate/__init__.py load
+    - mkdir weblate_wsgi
+    - touch weblate_wsgi/__init__.py
+    - ln -sf weblate/wsgi.py weblate_wsgi/wsgi.py  # Add symlink to prevent weblate/__init__.py load
   Start:
     - sudo supervisorctl restart all

@@ -49,7 +49,7 @@ OPBEAT = {
 
 # Updated Weblate settings
 
-GITHUB_USERNAME = "incuna-weblate"
+GITHUB_USERNAME = 'incuna-translate'
 
 # E-mail address that error messages come from.
 SERVER_EMAIL = 'weblate@incuna.org'
@@ -545,7 +545,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 # )
 
 # List of URLs your site is supposed to serve
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 # Example configuration to use memcached for caching
 # CACHES = {

@@ -10,8 +10,8 @@ incuna/translate:
     - /usr/local/bin/virtualenv . --python=`which python3`
     - bin/pip install --upgrade pip
     - ENV=${ENV_FOLDER:="/var/conf/env"}
-    - envdir $ENV mkdir $WEBLATE_DATA_DIR
-    - envdir $ENV chown distelli $WEBLATE_DATA_DIR 
+    - envdir $ENV mkdir "$WEBLATE_DATA_DIR"
+    - envdir $ENV chown distelli "$WEBLATE_DATA_DIR"
     - envdir $ENV bin/pip install -r requirements-ansible.txt
     - envdir $ENV bin/python manage.py collectstatic --noinput
     - envdir $ENV bin/python manage.py migrate --noinput

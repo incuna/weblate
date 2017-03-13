@@ -32,6 +32,21 @@ STATICFILES_STORAGE = os.environ.get(
     'django.contrib.staticfiles.storage.StaticFilesStorage',
 )
 
+# Mail settings for `django-ses` support
+
+ADMIN_EMAIL = os.environ.get('BUGS_EMAIL', 'bugs+translate@incuna.com')
+MANAGERS = ADMINS = (('Incuna error reporting', ADMIN_EMAIL),)
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
+
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'admin@incuna.com')
+SERVER_EMAIL = os.environ.get('SERVER_EMAIL', DEFAULT_FROM_EMAIL)
+
+AWS_SES_ACCESS_KEY_ID = os.environ.get('AWS_SES_ACCESS_KEY_ID')
+AWS_SES_SECRET_ACCESS_KEY = os.environ.get('AWS_SES_SECRET_ACCESS_KEY')
+
+AWS_SES_REGION_NAME = os.environ.get('AWS_SES_REGION_NAME')
+AWS_SES_REGION_ENDPOINT = os.environ.get('AWS_SES_REGION_ENDPOINT')
+
 STATIC_ROOT_DEFAULT = os.path.join(BASE_DIR, 'static_media')
 STATIC_ROOT = os.environ.get('STATIC_ROOT', STATIC_ROOT_DEFAULT)
 STATIC_URL = os.environ.get('STATIC_URL', '/static/')
@@ -50,24 +65,6 @@ OPBEAT = {
 # Updated Weblate settings
 
 GITHUB_USERNAME = 'incuna-translate'
-
-# E-mail address that error messages come from.
-SERVER_EMAIL = 'translate@incuna.org'
-
-# Default email address to use for various automated correspondence from
-# the site managers. Used for registration emails.
-DEFAULT_FROM_EMAIL = 'translate@incuna.org'
-
-
-
-
-
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
-
-MANAGERS = ADMINS
-
 
 
 # Data directory

@@ -33,6 +33,10 @@ STATICFILES_STORAGE = os.environ.get(
 )
 
 # Mail settings for `django-ses` support
+EMAIL_BACKEND = os.environ.get(
+    'EMAIL_BACKEND',
+    'django.core.mail.backends.smtp.EmailBackend',
+)
 
 ADMIN_EMAIL = os.environ.get('BUGS_EMAIL', 'bugs+translate@incuna.com')
 MANAGERS = ADMINS = (('Incuna error reporting', ADMIN_EMAIL),)
